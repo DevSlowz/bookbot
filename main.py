@@ -1,3 +1,5 @@
+from stats import get_num_words, get_character_count,demo,print_results
+
 
 def get_book_text(path_to_file):
     with open(path_to_file) as f:
@@ -5,14 +7,25 @@ def get_book_text(path_to_file):
 
     return file_contents
 
-def string_to_total_words(book_content):
-    word_count = book_content.split()
-    return len(word_count)
+
+
+
+
 
 def main():
+    print("============ BOOKBOT ============")
+    print("Analyzing book found at books/frankenstein.txt...")
     result = get_book_text("./books/frankenstein.txt")
-    num_words = string_to_total_words(result)
-    print(f"{num_words} words found in the document")
+    num_words = get_num_words(result)
 
+    print("----------- Word Count ----------")
+    print(f"Found {num_words} total words")
+
+    character_totals = get_character_count(result)
+
+
+
+    test = demo(character_totals)
+    print_results(test)
 
 main()
